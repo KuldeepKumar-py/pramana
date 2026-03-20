@@ -14,6 +14,7 @@ Pipeline
 from __future__ import annotations
 
 import json
+import time
 from dataclasses import asdict, dataclass, field
 from typing import Any, Dict, List, Optional, Union
 
@@ -34,6 +35,8 @@ class EngineOutput:
     inference_result: InferenceResult
     gate_result: PriorityGateResult
     trace_json: str
+    elapsed_time_ms: float = 0.0
+    """Total wall-clock time (milliseconds) from ``run()`` entry to return."""
     notes: List[str] = field(default_factory=list)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -56,6 +59,7 @@ class EngineOutput:
                 if self.inference_result.syllogism
                 else None
             ),
+            "elapsed_time_ms": round(self.elapsed_time_ms, 3),
             "notes": self.notes,
         }
 
@@ -109,6 +113,7 @@ class PramanaEngine:
         EngineOutput
             Full pipeline result including verdict and reasoning trace.
         """
+        _run_start = time.perf_counter()
         trace = ReasoningTrace()
 
         # ── 1. Ingest ──────────────────────────────────────────────────
@@ -199,5 +204,6 @@ class PramanaEngine:
             inference_result=inference_result,
             gate_result=gate_result,
             trace_json=trace.to_json(),
+            elapsed_time_ms=(time.perf_counter() - _run_start) * 1000.0,
             notes=inference_result.notes,
         )

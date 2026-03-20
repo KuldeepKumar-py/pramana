@@ -12,6 +12,7 @@ Covers:
 8. Arthāpatti missing-premise detection
 9. Priority gate Bādhita trigger
 10. Full engine pipeline (valid verdict)
+11. Execution timing – elapsed_time_ms present and non-negative
 """
 
 from __future__ import annotations
@@ -331,3 +332,36 @@ def test_full_engine_valid_verdict():
     trace = json.loads(output.trace_json)
     assert "nodes" in trace
     assert len(trace["nodes"]) >= 1
+
+
+# ---------------------------------------------------------------------------
+# Test 11 – Execution timing fields are present and non-negative
+# ---------------------------------------------------------------------------
+
+def test_engine_output_contains_timing():
+    """EngineOutput.elapsed_time_ms is non-negative and included in to_dict()."""
+    engine = PramanaEngine(confidence_threshold=0.5)
+    output = engine.run(
+        proposition_data={
+            "claim": "river flows downhill",
+            "source": "observation",
+            "pramana_type": "Pratyakṣa",
+            "confidence": 0.99,
+            "timestamp": "2025-01-01T00:00:00+00:00",
+        },
+    )
+
+    # Total elapsed time must be a non-negative float
+    assert isinstance(output.elapsed_time_ms, float)
+    assert output.elapsed_time_ms >= 0.0
+
+    # Must appear in the serialised dict
+    summary = output.to_dict()
+    assert "elapsed_time_ms" in summary
+    assert summary["elapsed_time_ms"] >= 0.0
+
+    # Each trace node must carry an elapsed_ms timestamp
+    trace = json.loads(output.trace_json)
+    for node in trace["nodes"]:
+        assert "elapsed_ms" in node, f"Node {node.get('id')} missing elapsed_ms"
+        assert node["elapsed_ms"] >= 0.0

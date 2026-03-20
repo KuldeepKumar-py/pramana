@@ -9,6 +9,7 @@ Acyclic Graph (DAG) and can be serialised to JSON using
 from __future__ import annotations
 
 import json
+import time
 from typing import Any, Dict, Optional
 
 import networkx as nx
@@ -17,6 +18,10 @@ from networkx.readwrite import json_graph
 
 class ReasoningTrace:
     """Directed Acyclic Graph that records the inference pipeline steps.
+
+    Each node in the DAG carries an ``elapsed_ms`` attribute that records
+    the wall-clock time (in milliseconds) from trace creation to when the
+    step was added.
 
     Usage
     -----
@@ -29,6 +34,12 @@ class ReasoningTrace:
     def __init__(self) -> None:
         self._graph: nx.DiGraph = nx.DiGraph()
         self._counter: int = 0
+        self._start: float = time.perf_counter()
+
+    @property
+    def elapsed_ms(self) -> float:
+        """Milliseconds elapsed since this trace was created."""
+        return (time.perf_counter() - self._start) * 1000.0
 
     # ------------------------------------------------------------------
     # Public API
@@ -67,6 +78,7 @@ class ReasoningTrace:
             node_id,
             label=label,
             step_index=self._counter,
+            elapsed_ms=round(self.elapsed_ms, 3),
             **safe_data,
         )
         if parent is not None:

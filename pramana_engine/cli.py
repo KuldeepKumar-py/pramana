@@ -85,6 +85,7 @@ def main(argv: list[str] | None = None) -> None:
 
     result: Dict[str, Any] = {
         "verdict": output.verdict.label.value,
+        "elapsed_time_ms": round(output.elapsed_time_ms, 3),
         "normalized": output.to_dict(),
         "reasoning_trace": json.loads(output.trace_json),
     }
