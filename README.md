@@ -46,12 +46,30 @@ tests/
 | pip | 22.0 |
 | Git | any recent version |
 
-### Step 1 – Clone the repository
+### Step 1 – Get the source code
+
+**Option A – Git clone (recommended)**
 
 ```bash
 git clone https://github.com/KuldeepKumar-py/pramana.git
 cd pramana
 ```
+
+**Option B – Download ZIP (no Git required)**
+
+1. Open <https://github.com/KuldeepKumar-py/pramana> in your browser.
+2. Click **Code → Download ZIP** and save the file.
+3. Extract the ZIP — this creates a sub-folder called **`pramana-main`** (or similar).
+4. Open a terminal / PowerShell **inside that sub-folder**:
+
+   ```powershell
+   # Windows PowerShell example
+   cd "$HOME\Downloads\pramana-main"
+   # Confirm pyproject.toml is present before continuing
+   dir pyproject.toml
+   ```
+
+> ⚠️ **Common mistake:** running `pip install` from the outer folder (e.g. `Desktop\Pramana Engine`) instead of from the extracted sub-folder that contains `pyproject.toml`. You must `cd` into the folder that has `pyproject.toml` before running any `pip` command.
 
 ### Step 2 – Create and activate a virtual environment
 
@@ -113,6 +131,52 @@ Expected output:
 Verdict: valid
 Elapsed (ms): <some positive number>
 ```
+
+---
+
+## Troubleshooting
+
+### `ERROR: … does not appear to be a Python project: neither 'setup.py' nor 'pyproject.toml' found`
+
+**Cause:** `pip install` was run from the wrong folder — one that does not contain `pyproject.toml`.
+
+**Fix:**
+
+1. Locate the `pyproject.toml` file.  
+   - If you used **git clone**, it is at the repo root (`pramana/`).  
+   - If you used the **ZIP download**, it is inside the extracted sub-folder (e.g. `pramana-main/`).
+
+2. `cd` into that folder and re-run the install:
+
+   ```powershell
+   # Windows PowerShell – ZIP download example
+   cd "$HOME\Downloads\pramana-main"
+   dir pyproject.toml          # should list the file
+   pip install -e ".[dev]"
+   ```
+
+   ```bash
+   # Linux / macOS – git clone example
+   cd pramana
+   ls pyproject.toml           # should list the file
+   pip install -e ".[dev]"
+   ```
+
+### `pip : The term 'pip' is not recognized …` (Windows)
+
+Use `python -m pip` instead:
+
+```powershell
+python -m pip install -e ".[dev]"
+```
+
+### PowerShell execution-policy error when activating the virtual environment
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+Then re-run `.\.venv\Scripts\Activate.ps1`.
 
 ---
 
