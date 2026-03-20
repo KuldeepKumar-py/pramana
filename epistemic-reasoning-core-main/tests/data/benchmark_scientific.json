@@ -1,0 +1,303 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "generator": "ScientificBenchmarkGenerator",
+    "count": 16
+  },
+  "cases": [
+    {
+      "id": "SCI-0001",
+      "scenario": "taxonomy_chain",
+      "setup_facts": [
+        "Entity_L0 is a Entity_L1.",
+        "Entity_L1 is a Entity_L2."
+      ],
+      "query": "Is Entity_L0 a Entity_L2?",
+      "expected_verdict": "POSITIVE",
+      "difficulty": 3,
+      "description": "Transitive inference across 3 levels of taxonomy.",
+      "tags": [
+        "taxonomy",
+        "transitivity",
+        "depth_3"
+      ]
+    },
+    {
+      "id": "SCI-0002",
+      "scenario": "taxonomy_asymmetry",
+      "setup_facts": [
+        "Entity_L0 is a Entity_L1.",
+        "Entity_L1 is a Entity_L2."
+      ],
+      "query": "Is Entity_L2 a Entity_L0?",
+      "expected_verdict": "UNKNOWN",
+      "difficulty": 3,
+      "description": "Checking asymmetry of Is-A relationship.",
+      "tags": [
+        "taxonomy",
+        "asymmetry"
+      ]
+    },
+    {
+      "id": "SCI-0003",
+      "scenario": "taxonomy_chain",
+      "setup_facts": [
+        "Entity_L0 is a Entity_L1.",
+        "Entity_L1 is a Entity_L2.",
+        "Entity_L2 is a Entity_L3.",
+        "Entity_L3 is a Entity_L4."
+      ],
+      "query": "Is Entity_L0 a Entity_L4?",
+      "expected_verdict": "POSITIVE",
+      "difficulty": 5,
+      "description": "Transitive inference across 5 levels of taxonomy.",
+      "tags": [
+        "taxonomy",
+        "transitivity",
+        "depth_5"
+      ]
+    },
+    {
+      "id": "SCI-0004",
+      "scenario": "taxonomy_asymmetry",
+      "setup_facts": [
+        "Entity_L0 is a Entity_L1.",
+        "Entity_L1 is a Entity_L2.",
+        "Entity_L2 is a Entity_L3.",
+        "Entity_L3 is a Entity_L4."
+      ],
+      "query": "Is Entity_L4 a Entity_L0?",
+      "expected_verdict": "UNKNOWN",
+      "difficulty": 5,
+      "description": "Checking asymmetry of Is-A relationship.",
+      "tags": [
+        "taxonomy",
+        "asymmetry"
+      ]
+    },
+    {
+      "id": "SCI-0005",
+      "scenario": "taxonomy_chain",
+      "setup_facts": [
+        "Entity_L0 is a Entity_L1.",
+        "Entity_L1 is a Entity_L2.",
+        "Entity_L2 is a Entity_L3.",
+        "Entity_L3 is a Entity_L4.",
+        "Entity_L4 is a Entity_L5.",
+        "Entity_L5 is a Entity_L6.",
+        "Entity_L6 is a Entity_L7."
+      ],
+      "query": "Is Entity_L0 a Entity_L7?",
+      "expected_verdict": "POSITIVE",
+      "difficulty": 8,
+      "description": "Transitive inference across 8 levels of taxonomy.",
+      "tags": [
+        "taxonomy",
+        "transitivity",
+        "depth_8"
+      ]
+    },
+    {
+      "id": "SCI-0006",
+      "scenario": "taxonomy_asymmetry",
+      "setup_facts": [
+        "Entity_L0 is a Entity_L1.",
+        "Entity_L1 is a Entity_L2.",
+        "Entity_L2 is a Entity_L3.",
+        "Entity_L3 is a Entity_L4.",
+        "Entity_L4 is a Entity_L5.",
+        "Entity_L5 is a Entity_L6.",
+        "Entity_L6 is a Entity_L7."
+      ],
+      "query": "Is Entity_L7 a Entity_L0?",
+      "expected_verdict": "UNKNOWN",
+      "difficulty": 8,
+      "description": "Checking asymmetry of Is-A relationship.",
+      "tags": [
+        "taxonomy",
+        "asymmetry"
+      ]
+    },
+    {
+      "id": "SCI-0007",
+      "scenario": "taxonomy_chain",
+      "setup_facts": [
+        "Entity_L0 is a Entity_L1.",
+        "Entity_L1 is a Entity_L2.",
+        "Entity_L2 is a Entity_L3.",
+        "Entity_L3 is a Entity_L4.",
+        "Entity_L4 is a Entity_L5.",
+        "Entity_L5 is a Entity_L6.",
+        "Entity_L6 is a Entity_L7.",
+        "Entity_L7 is a Entity_L8.",
+        "Entity_L8 is a Entity_L9."
+      ],
+      "query": "Is Entity_L0 a Entity_L9?",
+      "expected_verdict": "POSITIVE",
+      "difficulty": 10,
+      "description": "Transitive inference across 10 levels of taxonomy.",
+      "tags": [
+        "taxonomy",
+        "transitivity",
+        "depth_10"
+      ]
+    },
+    {
+      "id": "SCI-0008",
+      "scenario": "taxonomy_asymmetry",
+      "setup_facts": [
+        "Entity_L0 is a Entity_L1.",
+        "Entity_L1 is a Entity_L2.",
+        "Entity_L2 is a Entity_L3.",
+        "Entity_L3 is a Entity_L4.",
+        "Entity_L4 is a Entity_L5.",
+        "Entity_L5 is a Entity_L6.",
+        "Entity_L6 is a Entity_L7.",
+        "Entity_L7 is a Entity_L8.",
+        "Entity_L8 is a Entity_L9."
+      ],
+      "query": "Is Entity_L9 a Entity_L0?",
+      "expected_verdict": "UNKNOWN",
+      "difficulty": 10,
+      "description": "Checking asymmetry of Is-A relationship.",
+      "tags": [
+        "taxonomy",
+        "asymmetry"
+      ]
+    },
+    {
+      "id": "SCI-0009",
+      "scenario": "property_inheritance",
+      "setup_facts": [
+        "Chihuahua is a Dog.",
+        "Dog is a Canine.",
+        "Canine is a Mammal.",
+        "Mammal is a Animal.",
+        "Animals breathe oxygen."
+      ],
+      "query": "Do chihuahuas breathe oxygen?",
+      "expected_verdict": "POSITIVE",
+      "difficulty": 5,
+      "description": "Inheritance of 'breathe oxygen' from Animal to Chihuahua.",
+      "tags": [
+        "inheritance",
+        "biology"
+      ]
+    },
+    {
+      "id": "SCI-0010",
+      "scenario": "mid_level_inheritance",
+      "setup_facts": [
+        "Chihuahua is a Dog.",
+        "Dog is a Canine.",
+        "Canine is a Mammal.",
+        "Mammal is a Animal.",
+        "Dogs bark."
+      ],
+      "query": "Does a chihuahua bark?",
+      "expected_verdict": "POSITIVE",
+      "difficulty": 3,
+      "description": "Inheritance from mid-level class.",
+      "tags": [
+        "inheritance"
+      ]
+    },
+    {
+      "id": "SCI-0011",
+      "scenario": "upward_propagation_fail",
+      "setup_facts": [
+        "Chihuahua is a Dog.",
+        "Dog is a Canine.",
+        "Canine is a Mammal.",
+        "Mammal is a Animal.",
+        "Dogs bark."
+      ],
+      "query": "Do all animals bark?",
+      "expected_verdict": "UNKNOWN",
+      "difficulty": 3,
+      "description": "Properties should not propagate upwards implicitly.",
+      "tags": [
+        "inheritance",
+        "safety"
+      ]
+    },
+    {
+      "id": "SCI-0012",
+      "scenario": "negation_blocking",
+      "setup_facts": [
+        "Birds can fly.",
+        "Penguins are birds.",
+        "Penguins cannot fly."
+      ],
+      "query": "Can penguins fly?",
+      "expected_verdict": "NEGATIVE",
+      "difficulty": 5,
+      "description": "Specific negation 'cannot fly' should block inherited 'can fly'.",
+      "tags": [
+        "negation",
+        "conflict_resolution"
+      ]
+    },
+    {
+      "id": "SCI-0013",
+      "scenario": "negation_blocking_2",
+      "setup_facts": [
+        "Animals can move.",
+        "Sponges are animals.",
+        "Sponges cannot move."
+      ],
+      "query": "Can sponges move?",
+      "expected_verdict": "NEGATIVE",
+      "difficulty": 5,
+      "description": "Specific negation blocks general capability.",
+      "tags": [
+        "negation"
+      ]
+    },
+    {
+      "id": "SCI-0014",
+      "scenario": "comparative_transitivity",
+      "setup_facts": [
+        "Planet is larger than Moon.",
+        "Moon is larger than Asteroid.",
+        "Asteroid is larger than Pebble."
+      ],
+      "query": "Is a Planet larger than a Pebble?",
+      "expected_verdict": "POSITIVE",
+      "difficulty": 3,
+      "description": "Transitive inference of 'larger than' relation.",
+      "tags": [
+        "transitivity",
+        "spatial"
+      ]
+    },
+    {
+      "id": "SCI-0015",
+      "scenario": "hallucination_check",
+      "setup_facts": [
+        "Dogs are mammals."
+      ],
+      "query": "Do ghosts exist?",
+      "expected_verdict": "UNKNOWN",
+      "difficulty": 1,
+      "description": "Query about untaught entity.",
+      "tags": [
+        "safety"
+      ]
+    },
+    {
+      "id": "SCI-0016",
+      "scenario": "predicate_hallucination",
+      "setup_facts": [
+        "Dogs are mammals."
+      ],
+      "query": "Do dogs play poker?",
+      "expected_verdict": "UNKNOWN",
+      "difficulty": 1,
+      "description": "Query about untaught predicate for known entity.",
+      "tags": [
+        "safety"
+      ]
+    }
+  ]
+}

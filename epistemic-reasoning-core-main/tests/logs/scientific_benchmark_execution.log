@@ -1,0 +1,295 @@
+2026-01-06 11:15:22,694 - INFO - ============================================================
+2026-01-06 11:15:22,694 - INFO -                    STARTING BENCHMARK RUN                   
+2026-01-06 11:15:22,694 - INFO - ============================================================
+2026-01-06 11:15:22,694 - INFO - Total Cases: 16
+2026-01-06 11:15:22,695 - INFO - 
+----------------------------------------
+2026-01-06 11:15:22,695 - INFO - CASE: SCI-0001 (taxonomy_chain)
+2026-01-06 11:15:22,695 - INFO - Diff: 3, Desc: Transitive inference across 3 levels of taxonomy.
+2026-01-06 11:15:22,695 - INFO - TEACHING 2 FACTS:
+2026-01-06 11:15:22,695 - INFO -   + Taught: Entity_L0 is a Entity_L1.
+2026-01-06 11:15:22,695 - INFO -   + Taught: Entity_L1 is a Entity_L2.
+2026-01-06 11:15:22,695 - INFO - QUERY: Is Entity_L0 a Entity_L2?
+2026-01-06 11:15:22,696 - INFO - PROOF TRACE:
+2026-01-06 11:15:22,696 - INFO -   Step: Rule=focus, Out=Found 2 relevant belief(s)
+2026-01-06 11:15:22,696 - INFO -   Step: Rule=grounding_check, Out=Taxonomic grounding: ancestor 'entity_l1' has predicate {'is_a'}
+2026-01-06 11:15:22,696 - INFO -   Step: Rule=taxonomic_entailment, Out=Entailment: entity_l0 is a entity_l2 (Path: 7ae2d2d7-cda0-4e5c-bff1-509a83fe04a4 → f1e72169-4112-4b73-8af7-f864cf5015c8)
+2026-01-06 11:15:22,696 - INFO - Expected Verdict    : YES
+2026-01-06 11:15:22,696 - INFO - Actual Verdict      : YES
+2026-01-06 11:15:22,696 - INFO - RESULT: PASS ✅
+2026-01-06 11:15:22,696 - INFO - 
+----------------------------------------
+2026-01-06 11:15:22,696 - INFO - CASE: SCI-0002 (taxonomy_asymmetry)
+2026-01-06 11:15:22,696 - INFO - Diff: 3, Desc: Checking asymmetry of Is-A relationship.
+2026-01-06 11:15:22,696 - INFO - TEACHING 2 FACTS:
+2026-01-06 11:15:22,696 - INFO -   + Taught: Entity_L0 is a Entity_L1.
+2026-01-06 11:15:22,696 - INFO -   + Taught: Entity_L1 is a Entity_L2.
+2026-01-06 11:15:22,696 - INFO - QUERY: Is Entity_L2 a Entity_L0?
+2026-01-06 11:15:22,696 - INFO - PROOF TRACE:
+2026-01-06 11:15:22,696 - INFO -   Step: Rule=focus, Out=Found 2 relevant belief(s)
+2026-01-06 11:15:22,696 - INFO -   Step: Rule=grounding_check, Out=Taxonomic grounding: ancestor 'entity_l1' has predicate {'is_a'}
+2026-01-06 11:15:22,696 - INFO -   Step: Rule=no_answer_path, Out=No direct match, no inference path found
+2026-01-06 11:15:22,696 - INFO - Expected Verdict    : UNKNOWN
+2026-01-06 11:15:22,696 - INFO - Actual Verdict      : UNKNOWN
+2026-01-06 11:15:22,696 - INFO - RESULT: PASS ✅
+2026-01-06 11:15:22,696 - INFO - 
+----------------------------------------
+2026-01-06 11:15:22,696 - INFO - CASE: SCI-0003 (taxonomy_chain)
+2026-01-06 11:15:22,696 - INFO - Diff: 5, Desc: Transitive inference across 5 levels of taxonomy.
+2026-01-06 11:15:22,696 - INFO - TEACHING 4 FACTS:
+2026-01-06 11:15:22,696 - INFO -   + Taught: Entity_L0 is a Entity_L1.
+2026-01-06 11:15:22,696 - INFO -   + Taught: Entity_L1 is a Entity_L2.
+2026-01-06 11:15:22,696 - INFO -   + Taught: Entity_L2 is a Entity_L3.
+2026-01-06 11:15:22,696 - INFO -   + Taught: Entity_L3 is a Entity_L4.
+2026-01-06 11:15:22,696 - INFO - QUERY: Is Entity_L0 a Entity_L4?
+2026-01-06 11:15:22,696 - INFO - PROOF TRACE:
+2026-01-06 11:15:22,696 - INFO -   Step: Rule=focus, Out=Found 4 relevant belief(s)
+2026-01-06 11:15:22,696 - INFO -   Step: Rule=grounding_check, Out=Taxonomic grounding: ancestor 'entity_l1' has predicate {'is_a'}
+2026-01-06 11:15:22,696 - INFO -   Step: Rule=taxonomic_entailment, Out=Entailment: entity_l0 is a entity_l4 (Path: 0b44050a-7631-4583-8dfc-ba66bf5df709 → 3c70d536-efd6-49b0-8d35-9ca2b5592034 → 96eaf91c-65a4-4198-b716-2e3e9d67402a → 4f9e90bf-13eb-422e-9c37-e9e7976e204f)
+2026-01-06 11:15:22,696 - INFO - Expected Verdict    : YES
+2026-01-06 11:15:22,696 - INFO - Actual Verdict      : YES
+2026-01-06 11:15:22,696 - INFO - RESULT: PASS ✅
+2026-01-06 11:15:22,696 - INFO - 
+----------------------------------------
+2026-01-06 11:15:22,696 - INFO - CASE: SCI-0004 (taxonomy_asymmetry)
+2026-01-06 11:15:22,696 - INFO - Diff: 5, Desc: Checking asymmetry of Is-A relationship.
+2026-01-06 11:15:22,696 - INFO - TEACHING 4 FACTS:
+2026-01-06 11:15:22,696 - INFO -   + Taught: Entity_L0 is a Entity_L1.
+2026-01-06 11:15:22,696 - INFO -   + Taught: Entity_L1 is a Entity_L2.
+2026-01-06 11:15:22,696 - INFO -   + Taught: Entity_L2 is a Entity_L3.
+2026-01-06 11:15:22,696 - INFO -   + Taught: Entity_L3 is a Entity_L4.
+2026-01-06 11:15:22,696 - INFO - QUERY: Is Entity_L4 a Entity_L0?
+2026-01-06 11:15:22,696 - INFO - PROOF TRACE:
+2026-01-06 11:15:22,696 - INFO -   Step: Rule=focus, Out=Found 4 relevant belief(s)
+2026-01-06 11:15:22,696 - INFO -   Step: Rule=grounding_check, Out=Taxonomic grounding: ancestor 'entity_l1' has predicate {'is_a'}
+2026-01-06 11:15:22,696 - INFO -   Step: Rule=no_answer_path, Out=No direct match, no inference path found
+2026-01-06 11:15:22,696 - INFO - Expected Verdict    : UNKNOWN
+2026-01-06 11:15:22,696 - INFO - Actual Verdict      : UNKNOWN
+2026-01-06 11:15:22,696 - INFO - RESULT: PASS ✅
+2026-01-06 11:15:22,696 - INFO - 
+----------------------------------------
+2026-01-06 11:15:22,696 - INFO - CASE: SCI-0005 (taxonomy_chain)
+2026-01-06 11:15:22,696 - INFO - Diff: 8, Desc: Transitive inference across 8 levels of taxonomy.
+2026-01-06 11:15:22,697 - INFO - TEACHING 7 FACTS:
+2026-01-06 11:15:22,697 - INFO -   + Taught: Entity_L0 is a Entity_L1.
+2026-01-06 11:15:22,697 - INFO -   + Taught: Entity_L1 is a Entity_L2.
+2026-01-06 11:15:22,697 - INFO -   + Taught: Entity_L2 is a Entity_L3.
+2026-01-06 11:15:22,697 - INFO -   + Taught: Entity_L3 is a Entity_L4.
+2026-01-06 11:15:22,697 - INFO -   + Taught: Entity_L4 is a Entity_L5.
+2026-01-06 11:15:22,697 - INFO -   + Taught: Entity_L5 is a Entity_L6.
+2026-01-06 11:15:22,697 - INFO -   + Taught: Entity_L6 is a Entity_L7.
+2026-01-06 11:15:22,697 - INFO - QUERY: Is Entity_L0 a Entity_L7?
+2026-01-06 11:15:22,697 - INFO - PROOF TRACE:
+2026-01-06 11:15:22,697 - INFO -   Step: Rule=focus, Out=Found 7 relevant belief(s)
+2026-01-06 11:15:22,697 - INFO -   Step: Rule=grounding_check, Out=Taxonomic grounding: ancestor 'entity_l1' has predicate {'is_a'}
+2026-01-06 11:15:22,697 - INFO -   Step: Rule=taxonomic_entailment, Out=Entailment: entity_l0 is a entity_l7 (Path: ebd201a2-dd94-4036-92a6-3e4790c264e6 → 1ae1b8a8-0154-4f12-8731-183d11ab31cc → d7dd5195-8cc2-41dc-8943-fa2a0d727223 → b6ea0e2b-8245-4830-9c49-2b1c624f6cbc → a8805482-ebd0-44ff-9dd3-08347e8ab306 → bffdcc8a-a7a3-485b-9a52-20565cca2e8b → e153b918-76cd-4f65-9f97-e06f98b5ef66)
+2026-01-06 11:15:22,697 - INFO - Expected Verdict    : YES
+2026-01-06 11:15:22,697 - INFO - Actual Verdict      : YES
+2026-01-06 11:15:22,697 - INFO - RESULT: PASS ✅
+2026-01-06 11:15:22,697 - INFO - 
+----------------------------------------
+2026-01-06 11:15:22,697 - INFO - CASE: SCI-0006 (taxonomy_asymmetry)
+2026-01-06 11:15:22,697 - INFO - Diff: 8, Desc: Checking asymmetry of Is-A relationship.
+2026-01-06 11:15:22,697 - INFO - TEACHING 7 FACTS:
+2026-01-06 11:15:22,697 - INFO -   + Taught: Entity_L0 is a Entity_L1.
+2026-01-06 11:15:22,697 - INFO -   + Taught: Entity_L1 is a Entity_L2.
+2026-01-06 11:15:22,697 - INFO -   + Taught: Entity_L2 is a Entity_L3.
+2026-01-06 11:15:22,697 - INFO -   + Taught: Entity_L3 is a Entity_L4.
+2026-01-06 11:15:22,697 - INFO -   + Taught: Entity_L4 is a Entity_L5.
+2026-01-06 11:15:22,697 - INFO -   + Taught: Entity_L5 is a Entity_L6.
+2026-01-06 11:15:22,697 - INFO -   + Taught: Entity_L6 is a Entity_L7.
+2026-01-06 11:15:22,697 - INFO - QUERY: Is Entity_L7 a Entity_L0?
+2026-01-06 11:15:22,697 - INFO - PROOF TRACE:
+2026-01-06 11:15:22,697 - INFO -   Step: Rule=focus, Out=Found 7 relevant belief(s)
+2026-01-06 11:15:22,697 - INFO -   Step: Rule=grounding_check, Out=Taxonomic grounding: ancestor 'entity_l1' has predicate {'is_a'}
+2026-01-06 11:15:22,697 - INFO -   Step: Rule=no_answer_path, Out=No direct match, no inference path found
+2026-01-06 11:15:22,698 - INFO - Expected Verdict    : UNKNOWN
+2026-01-06 11:15:22,698 - INFO - Actual Verdict      : UNKNOWN
+2026-01-06 11:15:22,698 - INFO - RESULT: PASS ✅
+2026-01-06 11:15:22,698 - INFO - 
+----------------------------------------
+2026-01-06 11:15:22,698 - INFO - CASE: SCI-0007 (taxonomy_chain)
+2026-01-06 11:15:22,698 - INFO - Diff: 10, Desc: Transitive inference across 10 levels of taxonomy.
+2026-01-06 11:15:22,698 - INFO - TEACHING 9 FACTS:
+2026-01-06 11:15:22,698 - INFO -   + Taught: Entity_L0 is a Entity_L1.
+2026-01-06 11:15:22,698 - INFO -   + Taught: Entity_L1 is a Entity_L2.
+2026-01-06 11:15:22,698 - INFO -   + Taught: Entity_L2 is a Entity_L3.
+2026-01-06 11:15:22,698 - INFO -   + Taught: Entity_L3 is a Entity_L4.
+2026-01-06 11:15:22,698 - INFO -   + Taught: Entity_L4 is a Entity_L5.
+2026-01-06 11:15:22,698 - INFO -   + Taught: Entity_L5 is a Entity_L6.
+2026-01-06 11:15:22,698 - INFO -   + Taught: Entity_L6 is a Entity_L7.
+2026-01-06 11:15:22,698 - INFO -   + Taught: Entity_L7 is a Entity_L8.
+2026-01-06 11:15:22,698 - INFO -   + Taught: Entity_L8 is a Entity_L9.
+2026-01-06 11:15:22,698 - INFO - QUERY: Is Entity_L0 a Entity_L9?
+2026-01-06 11:15:22,698 - INFO - PROOF TRACE:
+2026-01-06 11:15:22,698 - INFO -   Step: Rule=focus, Out=Found 9 relevant belief(s)
+2026-01-06 11:15:22,698 - INFO -   Step: Rule=grounding_check, Out=Taxonomic grounding: ancestor 'entity_l1' has predicate {'is_a'}
+2026-01-06 11:15:22,698 - INFO -   Step: Rule=taxonomic_entailment, Out=Entailment: entity_l0 is a entity_l9 (Path: ee062ef2-9254-400a-9f4d-65ace9b7b641 → ece0cfc1-a8e1-4cf0-9144-2a71690f5156 → 3ad14009-d27a-4792-aec1-142dfaccdade → 523a58ca-1207-428e-8ef9-76d3e3ad5a50 → c31f893a-bb0b-4e2f-86b2-91040ce9cb55 → b2bffa9f-6f4f-4168-ab79-81d79747b7e7 → cb06ff99-79eb-4146-b9b5-fa210798d498 → 7d1d9602-ecb3-419b-9f70-599dc0e5b5db → b45762dd-9e2c-4541-a0c7-7365b48a4e2a)
+2026-01-06 11:15:22,698 - INFO - Expected Verdict    : YES
+2026-01-06 11:15:22,698 - INFO - Actual Verdict      : YES
+2026-01-06 11:15:22,698 - INFO - RESULT: PASS ✅
+2026-01-06 11:15:22,698 - INFO - 
+----------------------------------------
+2026-01-06 11:15:22,698 - INFO - CASE: SCI-0008 (taxonomy_asymmetry)
+2026-01-06 11:15:22,698 - INFO - Diff: 10, Desc: Checking asymmetry of Is-A relationship.
+2026-01-06 11:15:22,698 - INFO - TEACHING 9 FACTS:
+2026-01-06 11:15:22,698 - INFO -   + Taught: Entity_L0 is a Entity_L1.
+2026-01-06 11:15:22,698 - INFO -   + Taught: Entity_L1 is a Entity_L2.
+2026-01-06 11:15:22,698 - INFO -   + Taught: Entity_L2 is a Entity_L3.
+2026-01-06 11:15:22,698 - INFO -   + Taught: Entity_L3 is a Entity_L4.
+2026-01-06 11:15:22,698 - INFO -   + Taught: Entity_L4 is a Entity_L5.
+2026-01-06 11:15:22,699 - INFO -   + Taught: Entity_L5 is a Entity_L6.
+2026-01-06 11:15:22,699 - INFO -   + Taught: Entity_L6 is a Entity_L7.
+2026-01-06 11:15:22,699 - INFO -   + Taught: Entity_L7 is a Entity_L8.
+2026-01-06 11:15:22,699 - INFO -   + Taught: Entity_L8 is a Entity_L9.
+2026-01-06 11:15:22,699 - INFO - QUERY: Is Entity_L9 a Entity_L0?
+2026-01-06 11:15:22,699 - INFO - PROOF TRACE:
+2026-01-06 11:15:22,699 - INFO -   Step: Rule=focus, Out=Found 9 relevant belief(s)
+2026-01-06 11:15:22,699 - INFO -   Step: Rule=grounding_check, Out=Taxonomic grounding: ancestor 'entity_l1' has predicate {'is_a'}
+2026-01-06 11:15:22,699 - INFO -   Step: Rule=no_answer_path, Out=No direct match, no inference path found
+2026-01-06 11:15:22,699 - INFO - Expected Verdict    : UNKNOWN
+2026-01-06 11:15:22,699 - INFO - Actual Verdict      : UNKNOWN
+2026-01-06 11:15:22,699 - INFO - RESULT: PASS ✅
+2026-01-06 11:15:22,699 - INFO - 
+----------------------------------------
+2026-01-06 11:15:22,699 - INFO - CASE: SCI-0009 (property_inheritance)
+2026-01-06 11:15:22,699 - INFO - Diff: 5, Desc: Inheritance of 'breathe oxygen' from Animal to Chihuahua.
+2026-01-06 11:15:22,699 - INFO - TEACHING 5 FACTS:
+2026-01-06 11:15:22,699 - INFO -   + Taught: Chihuahua is a Dog.
+2026-01-06 11:15:22,699 - INFO -   + Taught: Dog is a Canine.
+2026-01-06 11:15:22,699 - INFO -   + Taught: Canine is a Mammal.
+2026-01-06 11:15:22,699 - INFO -   + Taught: Mammal is a Animal.
+2026-01-06 11:15:22,699 - INFO -   + Taught: Animals breathe oxygen.
+2026-01-06 11:15:22,699 - INFO - QUERY: Do chihuahuas breathe oxygen?
+2026-01-06 11:15:22,699 - INFO - PROOF TRACE:
+2026-01-06 11:15:22,699 - INFO -   Step: Rule=focus, Out=Found 2 relevant belief(s)
+2026-01-06 11:15:22,699 - INFO -   Step: Rule=grounding_check, Out=Taxonomic grounding: ancestor 'animal' has predicate {'breathes_oxygen'}
+2026-01-06 11:15:22,699 - INFO -   Step: Rule=taxonomy_traversal, Out=Checked ancestor: dog (Path: 5fd6b694-5657-42c9-b0dd-244b010aac42)
+2026-01-06 11:15:22,699 - INFO -   Step: Rule=taxonomy_traversal, Out=Checked ancestor: canine (Path: 5fd6b694-5657-42c9-b0dd-244b010aac42 → e9c29297-286f-4f40-a1d5-2cd5129a646c)
+2026-01-06 11:15:22,699 - INFO -   Step: Rule=taxonomy_traversal, Out=Checked ancestor: mammal (Path: 5fd6b694-5657-42c9-b0dd-244b010aac42 → e9c29297-286f-4f40-a1d5-2cd5129a646c → 88d4c12c-40cc-47ff-a7cc-50f358975859)
+2026-01-06 11:15:22,699 - INFO -   Step: Rule=taxonomy_traversal, Out=Checked ancestor: animal (Path: 5fd6b694-5657-42c9-b0dd-244b010aac42 → e9c29297-286f-4f40-a1d5-2cd5129a646c → 88d4c12c-40cc-47ff-a7cc-50f358975859 → 888a0b9d-56d6-4330-8223-e28f07a68ebf)
+2026-01-06 11:15:22,699 - INFO -   Step: Rule=ancestor_check, Out=Found positive assertion on animal for breathes_oxygen. Continuing search for deeper negations...
+2026-01-06 11:15:22,699 - INFO -   Step: Rule=taxonomic_inheritance, Out=Inheritance Success: chihuahua → ... → animal which has breathes_oxygen
+2026-01-06 11:15:22,699 - INFO - Expected Verdict    : YES
+2026-01-06 11:15:22,699 - INFO - Actual Verdict      : YES
+2026-01-06 11:15:22,700 - INFO - RESULT: PASS ✅
+2026-01-06 11:15:22,700 - INFO - 
+----------------------------------------
+2026-01-06 11:15:22,700 - INFO - CASE: SCI-0010 (mid_level_inheritance)
+2026-01-06 11:15:22,700 - INFO - Diff: 3, Desc: Inheritance from mid-level class.
+2026-01-06 11:15:22,700 - INFO - TEACHING 5 FACTS:
+2026-01-06 11:15:22,700 - INFO -   + Taught: Chihuahua is a Dog.
+2026-01-06 11:15:22,700 - INFO -   + Taught: Dog is a Canine.
+2026-01-06 11:15:22,700 - INFO -   + Taught: Canine is a Mammal.
+2026-01-06 11:15:22,700 - INFO -   + Taught: Mammal is a Animal.
+2026-01-06 11:15:22,700 - INFO -   + Taught: Dogs bark.
+2026-01-06 11:15:22,700 - INFO - QUERY: Does a chihuahua bark?
+2026-01-06 11:15:22,700 - INFO - PROOF TRACE:
+2026-01-06 11:15:22,700 - INFO -   Step: Rule=focus, Out=Found 2 relevant belief(s)
+2026-01-06 11:15:22,700 - INFO -   Step: Rule=grounding_check, Out=Taxonomic grounding: ancestor 'dog' has predicate {'generic'}
+2026-01-06 11:15:22,700 - INFO -   Step: Rule=taxonomy_traversal, Out=Checked ancestor: dog (Path: c8a6af31-5396-4fc3-89a4-86c38e8da6b1)
+2026-01-06 11:15:22,700 - INFO -   Step: Rule=ancestor_check, Out=Found positive assertion on dog for generic. Continuing search for deeper negations...
+2026-01-06 11:15:22,700 - INFO -   Step: Rule=taxonomy_traversal, Out=Checked ancestor: canine (Path: c8a6af31-5396-4fc3-89a4-86c38e8da6b1 → 8786ea72-815c-4d4e-8d0c-296212efefb4)
+2026-01-06 11:15:22,700 - INFO -   Step: Rule=taxonomy_traversal, Out=Checked ancestor: mammal (Path: c8a6af31-5396-4fc3-89a4-86c38e8da6b1 → 8786ea72-815c-4d4e-8d0c-296212efefb4 → 13ecd7f2-c2df-407c-82b6-a84910ff1dc6)
+2026-01-06 11:15:22,700 - INFO -   Step: Rule=taxonomy_traversal, Out=Checked ancestor: animal (Path: c8a6af31-5396-4fc3-89a4-86c38e8da6b1 → 8786ea72-815c-4d4e-8d0c-296212efefb4 → 13ecd7f2-c2df-407c-82b6-a84910ff1dc6 → cbe09fe0-e238-4a37-8ff7-febd7cc06c7d)
+2026-01-06 11:15:22,700 - INFO -   Step: Rule=taxonomic_inheritance, Out=Inheritance Success: chihuahua → ... → dog which has generic
+2026-01-06 11:15:22,700 - INFO - Expected Verdict    : YES
+2026-01-06 11:15:22,700 - INFO - Actual Verdict      : YES
+2026-01-06 11:15:22,700 - INFO - RESULT: PASS ✅
+2026-01-06 11:15:22,700 - INFO - 
+----------------------------------------
+2026-01-06 11:15:22,700 - INFO - CASE: SCI-0011 (upward_propagation_fail)
+2026-01-06 11:15:22,700 - INFO - Diff: 3, Desc: Properties should not propagate upwards implicitly.
+2026-01-06 11:15:22,700 - INFO - TEACHING 5 FACTS:
+2026-01-06 11:15:22,700 - INFO -   + Taught: Chihuahua is a Dog.
+2026-01-06 11:15:22,700 - INFO -   + Taught: Dog is a Canine.
+2026-01-06 11:15:22,700 - INFO -   + Taught: Canine is a Mammal.
+2026-01-06 11:15:22,700 - INFO -   + Taught: Mammal is a Animal.
+2026-01-06 11:15:22,700 - INFO -   + Taught: Dogs bark.
+2026-01-06 11:15:22,700 - INFO - QUERY: Do all animals bark?
+2026-01-06 11:15:22,700 - INFO - PROOF TRACE:
+2026-01-06 11:15:22,700 - INFO -   Step: Rule=focus, Out=Found 2 relevant belief(s)
+2026-01-06 11:15:22,700 - INFO -   Step: Rule=grounding_check, Out=Simple property check: entity 'animal' exists, 2 total entities
+2026-01-06 11:15:22,700 - INFO -   Step: Rule=no_answer_path, Out=No direct match, no inference path found
+2026-01-06 11:15:22,700 - INFO - Expected Verdict    : UNKNOWN
+2026-01-06 11:15:22,700 - INFO - Actual Verdict      : UNKNOWN
+2026-01-06 11:15:22,700 - INFO - RESULT: PASS ✅
+2026-01-06 11:15:22,700 - INFO - 
+----------------------------------------
+2026-01-06 11:15:22,700 - INFO - CASE: SCI-0012 (negation_blocking)
+2026-01-06 11:15:22,700 - INFO - Diff: 5, Desc: Specific negation 'cannot fly' should block inherited 'can fly'.
+2026-01-06 11:15:22,700 - INFO - TEACHING 3 FACTS:
+2026-01-06 11:15:22,700 - INFO -   + Taught: Birds can fly.
+2026-01-06 11:15:22,700 - INFO -   + Taught: Penguins are birds.
+2026-01-06 11:15:22,700 - INFO -   + Taught: Penguins cannot fly.
+2026-01-06 11:15:22,700 - INFO - QUERY: Can penguins fly?
+2026-01-06 11:15:22,701 - INFO - PROOF TRACE:
+2026-01-06 11:15:22,701 - INFO -   Step: Rule=focus, Out=Found 3 relevant belief(s)
+2026-01-06 11:15:22,701 - INFO -   Step: Rule=applicability_check, Out=✓ Applicable: entity=1.00, pred=1.00 | Penguins cannot fly.
+2026-01-06 11:15:22,701 - INFO -   Step: Rule=grounding_check, Out=Direct grounding: 1 applicable belief(s)
+2026-01-06 11:15:22,701 - INFO -   Step: Rule=hard_negative, Out=Explicit negation found: Penguins cannot fly.
+2026-01-06 11:15:22,701 - INFO - Expected Verdict    : NO
+2026-01-06 11:15:22,701 - INFO - Actual Verdict      : NO
+2026-01-06 11:15:22,701 - INFO - RESULT: PASS ✅
+2026-01-06 11:15:22,701 - INFO - 
+----------------------------------------
+2026-01-06 11:15:22,701 - INFO - CASE: SCI-0013 (negation_blocking_2)
+2026-01-06 11:15:22,701 - INFO - Diff: 5, Desc: Specific negation blocks general capability.
+2026-01-06 11:15:22,701 - INFO - TEACHING 3 FACTS:
+2026-01-06 11:15:22,701 - INFO -   + Taught: Animals can move.
+2026-01-06 11:15:22,701 - INFO -   + Taught: Sponges are animals.
+2026-01-06 11:15:22,701 - INFO -   + Taught: Sponges cannot move.
+2026-01-06 11:15:22,701 - INFO - QUERY: Can sponges move?
+2026-01-06 11:15:22,701 - INFO - PROOF TRACE:
+2026-01-06 11:15:22,701 - INFO -   Step: Rule=focus, Out=Found 3 relevant belief(s)
+2026-01-06 11:15:22,701 - INFO -   Step: Rule=applicability_check, Out=✓ Applicable: entity=1.00, pred=1.00 | Sponges cannot move.
+2026-01-06 11:15:22,701 - INFO -   Step: Rule=grounding_check, Out=Direct grounding: 1 applicable belief(s)
+2026-01-06 11:15:22,701 - INFO -   Step: Rule=hard_negative, Out=Explicit negation found: Sponges cannot move.
+2026-01-06 11:15:22,701 - INFO - Expected Verdict    : NO
+2026-01-06 11:15:22,701 - INFO - Actual Verdict      : NO
+2026-01-06 11:15:22,701 - INFO - RESULT: PASS ✅
+2026-01-06 11:15:22,701 - INFO - 
+----------------------------------------
+2026-01-06 11:15:22,701 - INFO - CASE: SCI-0014 (comparative_transitivity)
+2026-01-06 11:15:22,701 - INFO - Diff: 3, Desc: Transitive inference of 'larger than' relation.
+2026-01-06 11:15:22,701 - INFO - TEACHING 3 FACTS:
+2026-01-06 11:15:22,701 - INFO -   + Taught: Planet is larger than Moon.
+2026-01-06 11:15:22,701 - INFO -   + Taught: Moon is larger than Asteroid.
+2026-01-06 11:15:22,701 - INFO -   + Taught: Asteroid is larger than Pebble.
+2026-01-06 11:15:22,701 - INFO - QUERY: Is a Planet larger than a Pebble?
+2026-01-06 11:15:22,701 - INFO - PROOF TRACE:
+2026-01-06 11:15:22,701 - INFO -   Step: Rule=focus, Out=Found 3 relevant belief(s)
+2026-01-06 11:15:22,701 - INFO -   Step: Rule=grounding_check, Out=Simple property check: entity 'pebble' exists, 2 total entities
+2026-01-06 11:15:22,701 - INFO -   Step: Rule=transitive_inference, Out=Transitivity: planet > moon > asteroid > pebble
+2026-01-06 11:15:22,701 - INFO - Expected Verdict    : YES
+2026-01-06 11:15:22,701 - INFO - Actual Verdict      : YES
+2026-01-06 11:15:22,701 - INFO - RESULT: PASS ✅
+2026-01-06 11:15:22,701 - INFO - 
+----------------------------------------
+2026-01-06 11:15:22,701 - INFO - CASE: SCI-0015 (hallucination_check)
+2026-01-06 11:15:22,701 - INFO - Diff: 1, Desc: Query about untaught entity.
+2026-01-06 11:15:22,701 - INFO - TEACHING 1 FACTS:
+2026-01-06 11:15:22,701 - INFO -   + Taught: Dogs are mammals.
+2026-01-06 11:15:22,701 - INFO - QUERY: Do ghosts exist?
+2026-01-06 11:15:22,701 - INFO - PROOF TRACE:
+2026-01-06 11:15:22,701 - INFO -   Step: Rule=entity_existence_check, Out=Primary entity not in knowledge base: ghost
+2026-01-06 11:15:22,701 - INFO - Expected Verdict    : UNKNOWN
+2026-01-06 11:15:22,701 - INFO - Actual Verdict      : UNKNOWN
+2026-01-06 11:15:22,701 - INFO - RESULT: PASS ✅
+2026-01-06 11:15:22,701 - INFO - 
+----------------------------------------
+2026-01-06 11:15:22,701 - INFO - CASE: SCI-0016 (predicate_hallucination)
+2026-01-06 11:15:22,701 - INFO - Diff: 1, Desc: Query about untaught predicate for known entity.
+2026-01-06 11:15:22,701 - INFO - TEACHING 1 FACTS:
+2026-01-06 11:15:22,701 - INFO -   + Taught: Dogs are mammals.
+2026-01-06 11:15:22,701 - INFO - QUERY: Do dogs play poker?
+2026-01-06 11:15:22,701 - INFO - PROOF TRACE:
+2026-01-06 11:15:22,701 - INFO -   Step: Rule=entity_existence_check, Out=Primary entity not in knowledge base: play
+2026-01-06 11:15:22,701 - INFO - Expected Verdict    : UNKNOWN
+2026-01-06 11:15:22,701 - INFO - Actual Verdict      : UNKNOWN
+2026-01-06 11:15:22,701 - INFO - RESULT: PASS ✅
+2026-01-06 11:15:22,701 - INFO - ============================================================
+2026-01-06 11:15:22,701 - INFO -                      BENCHMARK SUMMARY                      
+2026-01-06 11:15:22,701 - INFO - ============================================================
+2026-01-06 11:15:22,701 - INFO - Passed: 16/16
+2026-01-06 11:15:22,701 - INFO - Accuracy: 100.0%

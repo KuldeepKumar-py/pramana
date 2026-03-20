@@ -1,0 +1,47 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Python version compatibility
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.10"]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install ruff pytest
+        pip install torch==2.6.0
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Lint with ruff
+      run: |
+        python -m ruff check pyreason/scripts
+    - name: Pytest Unit Tests with JIT Disabled
+      run: |
+        pytest tests/unit/disable_jit --tb=short -q
+    - name: Pytest Unit Tests with JIT Enabled
+      run: |
+        pytest tests/unit/dont_disable_jit --tb=short -q
+    - name: Pytest API Tests
+      run: |
+        pytest tests/api_tests --tb=short -q
+    - name: Pytest Functional Tests
+      run: |
+        pytest tests/functional/ --tb=short -q

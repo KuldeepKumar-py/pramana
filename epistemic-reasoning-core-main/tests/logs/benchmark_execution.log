@@ -1,0 +1,12 @@
+2026-01-10 01:01:43,701 - INFO - CASE: adv_01_temporal_revision - Belief Revision: Exception learned LATER should override earlier Default
+2026-01-10 01:01:43,702 - INFO - QUERY: Can Tweety fly? (Expect: YES)
+2026-01-10 01:01:43,702 - INFO -   RESULT: PASS (Actual: YES)
+2026-01-10 01:01:43,702 - INFO -   [UPDATE] Teaching: Tweety cannot fly
+2026-01-10 01:01:43,702 - INFO - QUERY (Post-Update): Can Tweety fly? (Expect: NO)
+2026-01-10 01:01:43,703 - INFO -   RESULT: PASS (Actual: NO)
+2026-01-10 01:01:43,703 - INFO - CASE: adv_02_conflict_diamond - Nixon Diamond: Two competing defaults with no specificity difference
+2026-01-10 01:01:43,703 - INFO - QUERY: Is Nixon a pacifist? (Expect: CONFLICT)
+2026-01-10 01:01:43,703 - INFO -   RESULT: PASS (Actual: CONFLICT)
+2026-01-10 01:01:43,704 - INFO - CASE: adv_03_quantifier_tension - Quantifiers: 'Some' does not imply 'All' or instance inheritance
+2026-01-10 01:01:43,704 - INFO - QUERY: Can Tweety fly? (Expect: UNKNOWN)
+2026-01-10 01:01:43,704 - INFO -   RESULT: PASS (Actual: UNKNOWN)

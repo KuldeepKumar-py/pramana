@@ -1,0 +1,108 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+build/
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+bin/
+
+# Project files and IDE configs
+nbproject/
+readme_old
+.vscode/
+compile_commands.json
+.idea/
+.idea/*
+.idea_original/
+.idea_original/*
+IDEA_ORIGINAL/
+IDEA_ORIGINAL/*
+
+# Doxygen
+Doxygen/Docs/
+docs/html/
+docs/html/*
+
+# Out files
+out/
+out/*
+*.tmp
+callgrind.out*
+
+# Log files
+logs/
+/logs/
+*.log
+
+# Results
+results/
+
+# MacOS
+*.DS_Store
+.DS_Store
+exp/.DS_Store
+exp/ICAPS20/.DS_Store
+
+# CMake
+cmake-build-*/
+cmake-build*/
+cmake-*/
+
+# Torch binary files
+lib/libtorch/
+lib/libtorch.zip
+/lib/onnxruntime/
+/lib/onnxruntime/*
+
+# Python
+/.venv/*
+/.venv/
+*/.venv/*
+*/.venv/
+
+# Config and Plan files
+*.ut
+**/*.ut
+/utils/plans/
+/utils/configs/
+
+# Training files
+**/training_data/
+**/training_data/*
+data/
+data/*
+*.pt
+**/*.pt
+
+#Python Related
+__pycache__/
+*.pyc
+**/__pycache__/
+**/*.pyc

@@ -1,0 +1,57 @@
+[
+    {
+        "id": "adv_01_temporal_revision",
+        "description": "Belief Revision: Exception learned LATER should override earlier Default",
+        "setup": [
+            "Birds can fly",
+            "Tweety is a bird"
+        ],
+        "queries": [
+            {
+                "text": "Can Tweety fly?",
+                "expected": "YES"
+            }
+        ],
+        "updates": [
+            {
+                "fact": "Tweety cannot fly",
+                "queries": [
+                    {
+                        "text": "Can Tweety fly?",
+                        "expected": "NO"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "adv_02_conflict_diamond",
+        "description": "Nixon Diamond: Two competing defaults with no specificity difference",
+        "setup": [
+            "Quakers are pacifists",
+            "Republicans are not pacifists",
+            "Nixon is a Quaker",
+            "Nixon is a Republican"
+        ],
+        "queries": [
+            {
+                "text": "Is Nixon a pacifist?",
+                "expected": "CONFLICT"
+            }
+        ]
+    },
+    {
+        "id": "adv_03_quantifier_tension",
+        "description": "Quantifiers: 'Some' does not imply 'All' or instance inheritance",
+        "setup": [
+            "Some birds can fly",
+            "Tweety is a bird"
+        ],
+        "queries": [
+            {
+                "text": "Can Tweety fly?",
+                "expected": "UNKNOWN"
+            }
+        ]
+    }
+]

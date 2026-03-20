@@ -1,0 +1,72 @@
+[
+  {
+    "id": "epistemic_01_penguin",
+    "description": "Defeasible Reasoning: Specific Exception overrides General Rule",
+    "setup": [
+      "Birds can fly",
+      "Penguins are birds",
+      "Penguins cannot fly"
+    ],
+    "queries": [
+      {
+        "text": "Can birds fly?",
+        "expected": "YES"
+      },
+      {
+        "text": "Can penguins fly?",
+        "expected": "NO"
+      },
+      {
+        "text": "Are penguins birds?",
+        "expected": "YES"
+      }
+    ]
+  },
+  {
+    "id": "epistemic_02_negation_dominance",
+    "description": "Negation Dominance: Negative fact blocks inheritance",
+    "setup": [
+      "Mammals have hair",
+      "Whales are mammals",
+      "Whales do not have hair"
+    ],
+    "queries": [
+      {
+        "text": "Do mammals have hair?",
+        "expected": "YES"
+      },
+      {
+        "text": "Do whales have hair?",
+        "expected": "NO"
+      }
+    ]
+  },
+  {
+    "id": "epistemic_03_unknown",
+    "description": "Open World Assumption: Absence of evidence is UNKNOWN, not NO",
+    "setup": [
+      "Socrates is a man"
+    ],
+    "queries": [
+      {
+        "text": "Is Socrates a plumber?",
+        "expected": "UNKNOWN"
+      },
+      {
+        "text": "Is Plato a man?",
+        "expected": "UNKNOWN"
+      }
+    ]
+  },
+  {
+    "id": "epistemic_04_invalid",
+    "description": "Epistemic Hygiene: Malformed queries return INVALID",
+    "setup": [],
+    "queries": [
+      {
+        "text": "jklasd fjklds",
+        "expected": "INVALID"
+      }
+    ]
+  }
+]

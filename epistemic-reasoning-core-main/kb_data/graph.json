@@ -1,0 +1,95 @@
+{
+  "version": "1.0",
+  "metadata": {},
+  "stats": {
+    "beliefs_added": 2,
+    "beliefs_removed": 0,
+    "edges_added": 0,
+    "edges_removed": 0,
+    "confidence_updates": 0,
+    "evidence_accumulated": 0
+  },
+  "created_at": "2026-01-10 06:02:31.828641+00:00",
+  "updated_at": "2026-01-10 06:04:17.133590+00:00",
+  "beliefs": {
+    "0f6e9375-cb24-4c52-805a-82abaa17f277": {
+      "id": "0f6e9375-cb24-4c52-805a-82abaa17f277",
+      "template": "is_a",
+      "canonical": {
+        "relation_type": "is_a",
+        "entities": [
+          "socrated",
+          "man"
+        ],
+        "subject": "socrated",
+        "object": "man",
+        "epistemic_class": "EpistemicClass.STRUCTURAL"
+      },
+      "active": true,
+      "confidence": 0.9,
+      "epistemic_state": "DEFAULT",
+      "entities": [
+        "socrated",
+        "man"
+      ],
+      "predicates": [
+        "is_a"
+      ],
+      "original_text": "Socrated is a man.",
+      "statement_text": "Socrated is a man.",
+      "polarity_value": 1,
+      "source": {
+        "input": "manas",
+        "parser": "manas_v0.1",
+        "parser_confidence": 0.9
+      },
+      "provenance": [
+        "Provenance(op='parsed', from_source='manas', score=0.9, metadata={}, timestamp=datetime.datetime(2026, 1, 10, 6, 2, 41, 185860, tzinfo=datetime.timezone.utc))"
+      ],
+      "evidence_count": 1,
+      "created_at": "2026-01-10 06:02:41.185819+00:00",
+      "updated_at": "2026-01-10 06:02:41.185835+00:00",
+      "epistemic_class": "EpistemicClass.STRUCTURAL"
+    },
+    "b21a9c1d-2e4b-4250-8dff-04f48012ac2c": {
+      "id": "b21a9c1d-2e4b-4250-8dff-04f48012ac2c",
+      "template": "is_a",
+      "canonical": {
+        "relation_type": "is_a",
+        "entities": [
+          "man",
+          "socrate"
+        ],
+        "subject": "socrate",
+        "object": "man",
+        "epistemic_class": "EpistemicClass.STRUCTURAL"
+      },
+      "active": true,
+      "confidence": 0.9,
+      "epistemic_state": "DEFAULT",
+      "entities": [
+        "man",
+        "socrate"
+      ],
+      "predicates": [
+        "is_a"
+      ],
+      "original_text": "Socrates is a man.",
+      "statement_text": "Socrates is a man.",
+      "polarity_value": 1,
+      "source": {
+        "input": "manas",
+        "parser": "manas_v0.1",
+        "parser_confidence": 0.9
+      },
+      "provenance": [
+        "Provenance(op='parsed', from_source='manas', score=0.9, metadata={}, timestamp=datetime.datetime(2026, 1, 10, 6, 4, 17, 133564, tzinfo=datetime.timezone.utc))"
+      ],
+      "evidence_count": 1,
+      "created_at": "2026-01-10 06:04:17.133506+00:00",
+      "updated_at": "2026-01-10 06:04:17.133520+00:00",
+      "epistemic_class": "EpistemicClass.STRUCTURAL"
+    }
+  },
+  "edges": []
+}

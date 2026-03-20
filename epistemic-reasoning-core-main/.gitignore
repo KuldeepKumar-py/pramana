@@ -1,0 +1,25 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Mac
+.DS_Store
+.icon
+Icon?
+
+
+# Documentation
+project_history.json
+
+# IDEs
+.vscode/
+.idea/
+
+# Episteme Data (Local DBs)
+showcase_db/
+tests_nixon_db/
+tests_logic_db/
+*.db
+*.sqlite
