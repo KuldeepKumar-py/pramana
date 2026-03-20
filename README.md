@@ -38,8 +38,80 @@ tests/
 
 ## Installation
 
+### Prerequisites
+
+| Requirement | Minimum version |
+|---|---|
+| Python | 3.10 |
+| pip | 22.0 |
+| Git | any recent version |
+
+### Step 1 – Clone the repository
+
+```bash
+git clone https://github.com/KuldeepKumar-py/pramana.git
+cd pramana
+```
+
+### Step 2 – Create and activate a virtual environment
+
+**Linux / macOS**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+**Windows (PowerShell)**
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+### Step 3 – Install the package
+
+**Editable install with development tools** (recommended for contributors and local testing):
+
 ```bash
 pip install -e ".[dev]"
+```
+
+**Runtime-only install** (no test dependencies):
+
+```bash
+pip install -e .
+```
+
+### Step 4 – Verify the installation
+
+```bash
+# The CLI should print help and exit cleanly
+pramana-engine --help
+
+# Quick Python smoke-test
+python - <<'EOF'
+from pramana_engine.engine import PramanaEngine
+engine = PramanaEngine()
+out = engine.run(
+    proposition_data={
+        "claim": "test claim",
+        "source": "test",
+        "pramana_type": "Pratyakṣa",
+        "confidence": 0.9,
+        "timestamp": "2025-01-01T00:00:00+00:00",
+    }
+)
+print("Verdict:", out.verdict.label.value)
+print("Elapsed (ms):", round(out.elapsed_time_ms, 2))
+EOF
+```
+
+Expected output:
+
+```
+Verdict: valid
+Elapsed (ms): <some positive number>
 ```
 
 ---
